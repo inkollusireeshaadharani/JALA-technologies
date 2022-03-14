@@ -1,0 +1,49 @@
+<!-- A page which specify a black border for table and if hover on it, page should change 
+it's colour -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        table,th,td{
+            border: solid 2px black;
+            width:15%;
+        }
+        table:hover{
+            background-color: blue;
+            color: white;
+            border: solid 2px white;
+        }
+        th{
+            text-align: left;
+        }
+        th:hover{
+            border: solid 2px white;
+        }
+        td:hover{
+            border: solid 2px white;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>S. No</th>
+            <th>Name</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Dharani</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Deepika</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Saakshith</td>
+        </tr>
+    </table>
+</body>
+</html>

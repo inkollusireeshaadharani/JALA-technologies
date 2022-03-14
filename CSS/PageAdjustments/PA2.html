@@ -1,0 +1,86 @@
+<!-- Apply different visibility by an element (visibility: hidden, visible, collapse) and use 
+different types of display for an element (display: none, inline, block, contents, list-item) -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        p{
+            background-color: blue;
+            color: white;
+            height:300px;
+            width:534px;
+            padding:7px;
+            visibility: visible;
+        }
+        div{
+            background-color: blue;
+            color: white;
+            height:300px;
+            width:534px;
+            padding:7px;
+        }
+        div:hover{
+            visibility: hidden;
+        }
+        tr:hover{
+            visibility: collapse;
+        }
+        a{
+            display:block;
+            height: 50px;
+            width:50px;
+            text-align: center;
+            background: yellow;
+            text-decoration: none;
+        }
+        a:hover{
+            display:inline;
+        }
+        .one:hover{
+            display: none;
+        }
+    </style>
+    
+</head>
+<body>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, rerum neque aspernatur veritatis dolor eveniet a corporis nihil nisi doloribus odio voluptatum perspiciatis ducimus nulla enim odit mollitia recusandae inventore!
+    </p>
+    <div class="one">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, rerum neque aspernatur veritatis dolor eveniet a corporis nihil nisi doloribus odio voluptatum perspiciatis ducimus nulla enim odit mollitia recusandae inventore!
+    </div><br>
+    <div class="two">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, rerum neque aspernatur veritatis dolor eveniet a corporis nihil nisi doloribus odio voluptatum perspiciatis ducimus nulla enim odit mollitia recusandae inventore!
+    </div><br>
+    <div class="three">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, rerum neque aspernatur veritatis dolor eveniet a corporis nihil nisi doloribus odio voluptatum perspiciatis ducimus nulla enim odit mollitia recusandae inventore!
+    </div><br>
+    <div class="four">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, rerum neque aspernatur veritatis dolor eveniet a corporis nihil nisi doloribus odio voluptatum perspiciatis ducimus nulla enim odit mollitia recusandae inventore!
+    </div><br>
+    <div class="five">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, rerum neque aspernatur veritatis dolor eveniet a corporis nihil nisi doloribus odio voluptatum perspiciatis ducimus nulla enim odit mollitia recusandae inventore!
+    </div><br>
+    <table>
+        <tr>
+            <th>S. No</th>
+            <th>Name</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Dharani</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Deepika</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Saakshith</td>
+        </tr>
+    </table>
+    <a href="http://www.google.com" >Google</a>
+</body>
+</html>
