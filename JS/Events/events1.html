@@ -1,0 +1,23 @@
+<!--  Add an event listener to a button. When we click on it should display current date 
+and time.
+ -->
+<html>
+    <head>
+        <title>Document</title>
+    </head>
+
+    <body>
+    <p id="h">
+            Click to display time   
+    </p>
+        <button onclick="display()">Date</button>
+        <script>
+            
+            function display(){
+                
+                ele=document.getElementById("h");
+                ele.innerHTML=window.Date();
+            }
+        </script>
+    </body>
+</html>

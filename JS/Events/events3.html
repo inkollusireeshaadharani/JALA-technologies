@@ -1,0 +1,22 @@
+<!-- How console.log() can be used for Debugging. -->
+
+<html>
+    <head>
+        <title>Document</title>
+    </head>
+
+    <body>
+    <p id="h">
+            Click to display time in console 
+    </p>
+        <button onclick="display()">Date</button>
+        <script>
+            
+            function display(){
+                ele=document.getElementById("h");
+                ele.innerHTML="Check the console";
+                console.log(window.Date());
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<!-- Create a JSON object and access it using dot notation. -->
+<html>
+    <body>
+        <script>
+            myJson = {settings:{
+                    prop_one:{
+                        desktop:{
+                            aaa:'',
+                            bbb:'',
+                            ccc:''
+                        },
+                        mobile:{
+                            aaa:'',
+                            bbb:'',
+                            ccc:''
+                        }
+                     }
+                } 
+             }
+            function myFunc(parent, key)
+            {
+            const value = key.split('.').reduce((o,i)=>o[i], myJson['settings']);
+            value[parent] = 'some new value';
+            return myJson; 
+            }
+    </script>
+    </body>
+</html>
+
+
+

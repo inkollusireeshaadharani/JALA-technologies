@@ -1,0 +1,25 @@
+<!-- Show the javascript validation. When you click submit, the text box doesn't need to 
+be empty. -->
+
+<html>
+    <head>
+        <title>Document</title>
+    </head>
+
+    <body>
+    <form name="form1"  onsubmit="validate()">
+        Feedback:<br>
+        <textarea rows="5" cols="10" name="ta" id="t"></textarea><br>
+        <input type="submit" value="submit"/>
+    </form>
+        
+        <script>
+            function validate(){
+                if(form1.ta.value=="")
+                {
+                    window.alert("Feedback can't be empty");
+                }
+            }
+        </script>
+    </body>
+</html>

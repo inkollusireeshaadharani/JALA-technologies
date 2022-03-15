@@ -1,0 +1,38 @@
+<!-- Invoke a function using call() and apply(). Also Spot the difference between them -->
+<html>
+    <head>
+        <title>Document</title>
+    </head>
+
+    <body >
+        
+        <button onClick="fun()">
+            click
+        </button>
+          
+        <p id="g"></p>
+        <p id="f"></p>
+        
+        <script>
+            function fun() {
+              let p = {
+                fullName: function(addr1, addr2) {
+                  return this.fName + " " + this.lName 
+                        + ", " + addr1 + ", " + addr2;
+                }
+              }
+                
+              let p1 = {
+                fName:"fName",
+                lName: "lName",
+              }
+                
+              let x = p.fullName.call(p1, "India", "USA"); 
+              document.getElementById("g").innerHTML = x;
+
+              let y = p.fullName.apply(p1, ["India", "USA"]); 
+                document.getElementById("f").innerHTML = y;
+              }
+        </script> 
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<!-- Create an object "person" with properties firstname and lastname. Display these 
+properties using 2 different ways of accessing -->
+<html>
+    <head>
+        <title>Document</title>
+    </head>
+
+    <body>
+        <p id="one">
+
+        </p>
+        <script>
+            var a={firstname:"Ram", LastName:"Roy"};
+            var obj=document.getElementById("one");
+            obj.innerHTML=a.firstname;
+            obj.innerHTML+=" "+a["LastName"];
+        </script>
+    </body>
+</html>
