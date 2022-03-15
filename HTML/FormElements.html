@@ -1,0 +1,103 @@
+<!-- Reference:
+FormElements.html
+1. Design the web page using all the below input attributes
+type =text, password, submit, reset, radio, checkbox, button, 
+2. HTML5 input Types
+type=number, range, color, date, file, time, month, week, email
+3. Apply all of the below input restrictions
+disabled, max, maxlength, min, readonly, required, size, value
+4. Develop a web page using target attribute.
+5. Use I-frames and Marquee in your webpage -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Form elements</title>
+    </head>
+    <body>
+
+        <marquee style="font-weight: bolder; font-size: 50px;" >Hey how you doin</marquee>
+
+        <iframe src="sample.html" height="200" width="500">
+        </iframe>
+
+        <form>
+            <label>
+                Username: <input type="text" name="uname">
+            </label><br>
+
+            <label>
+                Password: <input type="password" name="pwd">
+            </label><br>
+
+            <label>
+                <input type="radio" name="gender" value="male">Male
+            </label><br>
+            <label>
+                <input type="radio" name="gender" value="female">Female
+            </label><br>
+
+            Contact: <br>
+            <label>
+                <input type="checkbox" name="contact" value="mail" >Mail
+            </label><br>
+            <label>
+                <input type="checkbox" name="contact" value="phone" >Phone
+            </label><br>
+            <label>
+                <input type="checkbox" name="contact" value="face" disabled>Facebook
+            </label><br>
+            <label>
+                <input type="checkbox" name="contact" value="instagram">Instagram
+            </label><br>
+            <label>
+                <input type="checkbox" name="contact" value="twitter">Twitter
+            </label><br>
+
+            <label>
+                Phone: <input type="tel" name="phno" >
+            </label><br>
+
+            <label>
+                Age: <input type="number" name="age" max="21" min="17" >
+            </label><br>
+
+            <label>
+                Pick a color: <input type="color" name="color" >
+            </label><br>
+
+            <label>
+                Date of birth: <input type="date" name="dob" >
+            </label><br>
+
+            <label>
+                Upload passport photo: <input type="file" name="ppic" >
+            </label><br>
+
+            <label>
+                Birth month: <input type="month" name="bmon" >
+            </label><br>
+
+            <label>
+                Birth week: <input type="week" name="bweek" >
+            </label><br>
+
+            <label>
+                Email: <input type="email" name="email" size="30" readonly >
+            </label><br>
+
+            <label>
+                Nick name: <input type="text" name="nick" required maxlength="20">
+            </label><br>
+            
+            <input type="submit" value="Submit"/>
+            <input type="reset" value="Reset"/>
+            <input type="button" value="Send otp to email"/>
+            <button>Send otp to phone</button><br>
+        </form>
+        
+            <a href="https://www.google.com" target="_blank" style="display: block; height: 25px;width: 70px; background-color: pink; text-align: center;">Google</a>
+            
+            
+    </body>
+</html>
