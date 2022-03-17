@@ -1,0 +1,628 @@
+create database assignment;
+
+use assignment;
+
+create table salespeople(snum integer(5) primary key, sname char(10), city char(20), comm decimal(8,3));
+
+ INSERT INTO SALESPEOPLE VALUES (1001, 'Peel', 'London',0.12);
+
+ INSERT INTO SALESPEOPLE VALUES(1002, 'Serres','San Jose',0.13);
+
+ INSERT INTO SALESPEOPLE VALUES(1004, 'Motika','London',0.11);
+
+ INSERT INTO SALESPEOPLE VALUES(1007, 'Rafkin','Barcelona',0.15);
+
+ INSERT INTO SALESPEOPLE VALUES(1003, 'Axelrod','New York',0.1);
+
+ select * from salespeople;
+
++------+---------+-----------+-------+
+| snum | sname   | city      | comm  |
++------+---------+-----------+-------+
+| 1001 | Peel    | London    | 0.120 |
+| 1002 | Serres  | San Jose  | 0.130 |
+| 1003 | Axelrod | New York  | 0.100 |
+| 1004 | Motika  | London    | 0.110 |
+| 1007 | Rafkin  | Barcelona | 0.150 |
++------+---------+-----------+-------+
+
+ CREATE TABLE CUST(CNUM INTEGER(5) PRIMARY KEY,  CNAME CHAR(20),  CITY CHAR(20), RATING INTEGER(3),SNUM INTEGER(4));
+
+ INSERT INTO CUST VALUES (2001, 'Hoffman', 'London',100,1001);
+
+
+ INSERT INTO CUST VALUES (2002, 'Giovanne', 'Rome',200,1003);
+
+
+ INSERT INTO CUST VALUES (2003, 'Liu', 'San Jose',300,1002);
+
+ INSERT INTO CUST VALUES (2004, 'Grass', 'Brelin',100,1002);
+
+ INSERT INTO CUST VALUES (2006, 'Clemens', 'London',300,1007);
+
+ INSERT INTO CUST VALUES (2007, 'Pereia', 'Rome',100,1004);
+
+select * from cust;
++------+----------+----------+--------+------+
+| CNUM | CNAME    | CITY     | RATING | SNUM |
++------+----------+----------+--------+------+
+| 2001 | Hoffman  | London   |    100 | 1001 |
+| 2002 | Giovanne | Rome     |    200 | 1003 |
+| 2003 | Liu      | San Jose |    300 | 1002 |
+| 2004 | Grass    | Brelin   |    100 | 1002 |
+| 2006 | Clemens  | London   |    300 | 1007 |
+| 2007 | Pereia   | Rome     |    100 | 1004 |
++------+----------+----------+--------+------+
+
+CREATE TABLE ORDERS(ONUM INTEGER(5) PRIMARY KEY,  AMT DECIMAL(7,2), ODATE Date, CNUM INTEGER(4),SNUM INTEGER(4));
+
+INSERT INTO ORDERS VALUES (3001,18.69,'1994-10-03',2008,1007); 
+
+INSERT INTO ORDERS VALUES (3003,767.19,'1994-10-03',2001,1001); 
+
+INSERT INTO ORDERS VALUES (3002,1900.10,'1994-10-03',2007,1004);
+
+INSERT INTO ORDERS VALUES (3005,5160.45,'1994-10-03',2003,1002); 
+
+INSERT INTO ORDERS VALUES (3006,1098.16,'1994-10-04',2003,1007);
+
+INSERT INTO ORDERS VALUES (3009,1713.23,'1994-10-04',2002,1003);
+
+INSERT INTO ORDERS VALUES (3007,75.75,'1994-10-05',2006,1002);
+
+INSERT INTO ORDERS VALUES (3008,4723.00,'1994-10-05',2006,1001);
+
+INSERT INTO ORDERS VALUES (3010,1309.95,'1994-10-06',2004,1002);
+
+INSERT INTO ORDERS VALUES (3011,9891.88,'1994-10-06',2006,1001);
+
+select * from orders;
++------+---------+------------+------+------+
+| ONUM | AMT     | ODATE      | CNUM | SNUM |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1994-10-03 | 2008 | 1007 |
+| 3002 | 1900.10 | 1994-10-03 | 2007 | 1004 |
+| 3003 |  767.19 | 1994-10-03 | 2001 | 1001 |
+| 3005 | 5160.45 | 1994-10-03 | 2003 | 1002 |
+| 3006 | 1098.16 | 1994-10-04 | 2003 | 1007 |
+| 3007 |   75.75 | 1994-10-05 | 2006 | 1002 |
+| 3008 | 4723.00 | 1994-10-05 | 2006 | 1001 |
+| 3009 | 1713.23 | 1994-10-04 | 2002 | 1003 |
+| 3010 | 1309.95 | 1994-10-06 | 2004 | 1002 |
+| 3011 | 9891.88 | 1994-10-06 | 2006 | 1001 |
++------+---------+------------+------+------+
+
+Select snum, sname, city, comm from salespeople;
++------+---------+-----------+-------+
+| snum | sname   | city      | comm  |
++------+---------+-----------+-------+
+| 1001 | Peel    | London    | 0.120 |
+| 1002 | Serres  | San Jose  | 0.130 |
+| 1003 | Axelrod | New York  | 0.100 |
+| 1004 | Motika  | London    | 0.110 |
+| 1007 | Rafkin  | Barcelona | 0.150 |
++------+---------+-----------+-------+
+
+
+Select distinct snum from orders;
++------+
+| snum |
++------+
+| 1007 |
+| 1004 |
+| 1001 |
+| 1002 |
+| 1003 |
++------+
+
+Select sname,comm from salespeople where city = 'London';
++--------+-------+
+| sname  | comm  |
++--------+-------+
+| Peel   | 0.120 |
+| Motika | 0.110 |
++--------+-------+
+
+
+Select cname from cust where rating = 100;
++---------+
+| cname   |
++---------+
+| Hoffman |
+| Grass   |
+| Pereia  |
++---------+
+
+Select onum, amt, odate from orders;
++------+---------+------------+
+| onum | amt     | odate      |
++------+---------+------------+
+| 3001 |   18.69 | 1994-10-03 |
+| 3002 | 1900.10 | 1994-10-03 |
+| 3003 |  767.19 | 1994-10-03 |
+| 3005 | 5160.45 | 1994-10-03 |
+| 3006 | 1098.16 | 1994-10-04 |
+| 3007 |   75.75 | 1994-10-05 |
+| 3008 | 4723.00 | 1994-10-05 |
+| 3009 | 1713.23 | 1994-10-04 |
+| 3010 | 1309.95 | 1994-10-06 |
+| 3011 | 9891.88 | 1994-10-06 |
++------+---------+------------+
+
+
+Select cname from cust where rating > 200;
++---------+
+| cname   |
++---------+
+| Liu     |
+| Clemens |
++---------+
+
+
+
+Select cname from cust where city = 'San Jose' or rating > 200;
++---------+
+| cname   |
++---------+
+| Liu     |
+| Clemens |
++---------+
+
+
+Select *  from orders where amt > 1000; 
++------+---------+------------+------+------+
+| ONUM | AMT     | ODATE      | CNUM | SNUM |
++------+---------+------------+------+------+
+| 3002 | 1900.10 | 1994-10-03 | 2007 | 1004 |
+| 3005 | 5160.45 | 1994-10-03 | 2003 | 1002 |
+| 3006 | 1098.16 | 1994-10-04 | 2003 | 1007 |
+| 3008 | 4723.00 | 1994-10-05 | 2006 | 1001 |
+| 3009 | 1713.23 | 1994-10-04 | 2002 | 1003 |
+| 3010 | 1309.95 | 1994-10-06 | 2004 | 1002 |
+| 3011 | 9891.88 | 1994-10-06 | 2006 | 1001 |
++------+---------+------------+------+------+
+
+
+Select sname, city from salespeople where comm > 0.10 and city = 'London';
++--------+--------+
+| sname  | city   |
++--------+--------+
+| Peel   | London |
+| Motika | London |
++--------+--------+
+
+
+Select cname from cust where rating <= 100 or city = 'Rome';
++----------+
+| cname    |
++----------+
+| Hoffman  |
+| Giovanne |
+| Grass    |
+| Pereia   |
++----------+
+
+
+Select sname, city from salespeople where city in ('Barcelona','London'); 
++--------+-----------+
+| sname  | city      |
++--------+-----------+
+| Peel   | London    |
+| Motika | London    |
+| Rafkin | Barcelona |
++--------+-----------+
+
+
+Select sname, comm from salespeople where comm > 0.10 and comm < 0.12; 
++--------+-------+
+| sname  | comm  |
++--------+-------+
+| Motika | 0.110 |
++--------+-------+
+
+Select cname from cust where city is null; 
+Empty set
+
+Select * from orders where odate in ('1994-10-03','1994-10-04'); 
++------+---------+------------+------+------+
+| ONUM | AMT     | ODATE      | CNUM | SNUM |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1994-10-03 | 2008 | 1007 |
+| 3002 | 1900.10 | 1994-10-03 | 2007 | 1004 |
+| 3003 |  767.19 | 1994-10-03 | 2001 | 1001 |
+| 3005 | 5160.45 | 1994-10-03 | 2003 | 1002 |
+| 3006 | 1098.16 | 1994-10-04 | 2003 | 1007 |
+| 3009 | 1713.23 | 1994-10-04 | 2002 | 1003 |
++------+---------+------------+------+------+
+
+
+Select cname from cust, orders where orders.cnum = cust.cnum and 
+	orders.snum in ( select snum from salespeople where sname in ('Peel','Motika')); 
++---------+
+| cname   |
++---------+
+| Pereia  |
+| Hoffman |
+| Clemens |
+| Clemens |
++---------+
+
+Select onum from orders where amt != 0 or amt is not null;
++------+
+| onum |
++------+
+| 3001 |
+| 3002 |
+| 3003 |
+| 3005 |
+| 3006 |
+| 3007 |
+| 3008 |
+| 3009 |
+| 3010 |
+| 3011 |
++------+
+
+Select count(distinct snum) from orders; 
++----------------------+
+| count(distinct snum) |
++----------------------+
+|                    5 |
++----------------------+
+
+
+Select odate, snum, max(amt) from orders group by odate, snum order by odate,snum; 
++------------+------+----------+
+| odate      | snum | max(amt) |
++------------+------+----------+
+| 1994-10-03 | 1001 |   767.19 |
+| 1994-10-03 | 1002 |  5160.45 |
+| 1994-10-03 | 1004 |  1900.10 |
+| 1994-10-03 | 1007 |    18.69 |
+| 1994-10-04 | 1003 |  1713.23 |
+| 1994-10-04 | 1007 |  1098.16 |
+| 1994-10-05 | 1001 |  4723.00 |
+| 1994-10-05 | 1002 |    75.75 |
+| 1994-10-06 | 1001 |  9891.88 |
+| 1994-10-06 | 1002 |  1309.95 |
++------------+------+----------+
+
+Select odate, snum, max(amt) from orders where amt > 3000 group by odate, snum order by odate,snum;
++------------+------+----------+
+| odate      | snum | max(amt) |
++------------+------+----------+
+| 1994-10-03 | 1002 |  5160.45 |
+| 1994-10-05 | 1001 |  4723.00 |
+| 1994-10-06 | 1001 |  9891.88 |
++------------+------+----------+
+
+Select odate, amt, snum, cnum from orders where amt = (select max(amt)  from orders); 
++------------+---------+------+------+
+| odate      | amt     | snum | cnum |
++------------+---------+------+------+
+| 1994-10-06 | 9891.88 | 1001 | 2006 |
++------------+---------+------+------+
+
+
+Select count(*) from orders where odate = '1994-10-03';
++----------+
+| count(*) |
++----------+
+|        4 |
++----------+
+
+
+Select count(distinct city) from cust;
++----------------------+
+| count(distinct city) |
++----------------------+
+|                    4 |
++----------------------+
+
+
+Select cnum, min(amt) from orders group by cnum;
++------+----------+
+| cnum | min(amt) |
++------+----------+
+| 2008 |    18.69 |
+| 2007 |  1900.10 |
+| 2001 |   767.19 |
+| 2003 |  1098.16 |
+| 2006 |    75.75 |
+| 2002 |  1713.23 |
+| 2004 |  1309.95 |
++------+----------+
+
+Select min(cname) from cust where cname like 'G%';
++------------+
+| min(cname) |
++------------+
+| Giovanne   |
++------------+
+
+
+
+
+Select onum, snum, amt, amt * 0.12 from orders order by snum; 
++------+------+---------+------------+
+| onum | snum | amt     | amt * 0.12 |
++------+------+---------+------------+
+| 3003 | 1001 |  767.19 |    92.0628 |
+| 3008 | 1001 | 4723.00 |   566.7600 |
+| 3011 | 1001 | 9891.88 |  1187.0256 |
+| 3005 | 1002 | 5160.45 |   619.2540 |
+| 3007 | 1002 |   75.75 |     9.0900 |
+| 3010 | 1002 | 1309.95 |   157.1940 |
+| 3009 | 1003 | 1713.23 |   205.5876 |
+| 3002 | 1004 | 1900.10 |   228.0120 |
+| 3001 | 1007 |   18.69 |     2.2428 |
+| 3006 | 1007 | 1098.16 |   131.7792 |
++------+------+---------+------------+
+
+Select 'For the city (' || city || '), the highest rating is : (' ||  max(rating) || ')' from cust group by city;
++-----------------------------------------------------------------------------------+
+| 'For the city (' || city || '), the highest rating is : (' ||  max(rating) || ')' |
++-----------------------------------------------------------------------------------+
+|                                                                                 1 |
+|                                                                                 1 |
+|                                                                                 1 |
+|                                                                                 1 |
++-----------------------------------------------------------------------------------+
+
+Select odate, count(onum) from orders group by odate order by count(onum); 
++------------+-------------+
+| odate      | count(onum) |
++------------+-------------+
+| 1994-10-04 |           2 |
+| 1994-10-05 |           2 |
+| 1994-10-06 |           2 |
+| 1994-10-03 |           4 |
++------------+-------------+
+
+Select sname, amt * comm from orders, cust, salespeople where rating > 100 and salespeople.snum = cust.snum and salespeople.snum = orders.snum and cust.cnum = orders.cnum ;
++---------+------------+
+| sname   | amt * comm |
++---------+------------+
+| Serres  |  670.85850 |
+| Axelrod |  171.32300 |
++---------+------------+
+
+Select a.cname, b.cname,a.rating from cust a, cust b where a.rating = b.rating and a.cnum != b.cnum ;
++---------+---------+--------+
+| cname   | cname   | rating |
++---------+---------+--------+
+| Pereia  | Hoffman |    100 |
+| Grass   | Hoffman |    100 |
+| Clemens | Liu     |    300 |
+| Pereia  | Grass   |    100 |
+| Hoffman | Grass   |    100 |
+| Liu     | Clemens |    300 |
+| Grass   | Pereia  |    100 |
+| Hoffman | Pereia  |    100 |
++---------+---------+--------+
+
+Select a.cname, b.cname,a.rating from cust a, cust b where a.rating = b.rating and a.cnum != b.cnum and a.cnum <> b.cnum; 
++---------+---------+--------+
+| cname   | cname   | rating |
++---------+---------+--------+
+| Pereia  | Hoffman |    100 |
+| Grass   | Hoffman |    100 |
+| Clemens | Liu     |    300 |
+| Pereia  | Grass   |    100 |
+| Hoffman | Grass   |    100 |
+| Liu     | Clemens |    300 |
+| Grass   | Pereia  |    100 |
+| Hoffman | Pereia  |    100 |
++---------+---------+--------+
+
+
+Select cname, sname from salespeople, cust where sname in  ( select sname  from salespeople where snum != 3) order by cname; 
++----------+---------+
+| cname    | sname   |
++----------+---------+
+| Clemens  | Rafkin  |
+| Clemens  | Motika  |
+| Clemens  | Axelrod |
+| Clemens  | Serres  |
+| Clemens  | Peel    |
+| Giovanne | Rafkin  |
+| Giovanne | Motika  |
+| Giovanne | Axelrod |
+| Giovanne | Serres  |
+| Giovanne | Peel    |
+| Grass    | Rafkin  |
+| Grass    | Motika  |
+| Grass    | Axelrod |
+| Grass    | Serres  |
+| Grass    | Peel    |
+| Hoffman  | Rafkin  |
+| Hoffman  | Motika  |
+| Hoffman  | Axelrod |
+| Hoffman  | Serres  |
+| Hoffman  | Peel    |
+| Liu      | Rafkin  |
+| Liu      | Motika  |
+| Liu      | Axelrod |
+| Liu      | Serres  |
+| Liu      | Peel    |
+| Pereia   | Rafkin  |
+| Pereia   | Motika  |
+| Pereia   | Axelrod |
+| Pereia   | Serres  |
+| Pereia   | Peel    |
++----------+---------+
+
+
+
+Select cname  from cust where city in ( select city from cust, orders where cust.cnum = orders.cnum and orders.snum in ( select snum  from salespeople where sname = 'Serres')); 
++---------+
+| cname   |
++---------+
+| Hoffman |
+| Liu     |
+| Grass   |
+| Clemens |
++---------+
+
+
+
+Select distinct a.cname from cust a ,cust b where a.snum = b.snum and a.rowid != b.rowid; 
++-------+
+| cname |
++-------+
+| Liu   |
+| Grass |
++-------+
+
+
+Select cname, city from cust where rating = (select rating from cust where cname = 'Hoffman') and cname != 'Hoffman'; 
++--------+--------+
+| cname  | city   |
++--------+--------+
+| Grass  | Brelin |
+| Pereia | Rome   |
++--------+--------+
+
+
+Select Onum from orders where snum = ( select snum from salespeople where sname = 'Motika'); 
++------+
+| Onum |
++------+
+| 3002 |
++------+
+
+
+Select onum, sname, cname, amt from orders a, salespeople b, cust c where a.snum = b.snum and a.cnum = c.cnum and a.snum = ( select snum from orders where cnum = ( select cnum from cust where cname = 'Hoffman')); 
++------+-------+---------+---------+
+| onum | sname | cname   | amt     |
++------+-------+---------+---------+
+| 3003 | Peel  | Hoffman |  767.19 |
+| 3008 | Peel  | Clemens | 4723.00 |
+| 3011 | Peel  | Clemens | 9891.88 |
++------+-------+---------+---------+
+
+Select *  from orders where amt > ( select avg(amt)  from orders where odate = '1994-10-03'); 
++------+---------+------------+------+------+
+| ONUM | AMT     | ODATE      | CNUM | SNUM |
++------+---------+------------+------+------+
+| 3005 | 5160.45 | 1994-10-03 | 2003 | 1002 |
+| 3008 | 4723.00 | 1994-10-05 | 2006 | 1001 |
+| 3011 | 9891.88 | 1994-10-06 | 2006 | 1001 |
++------+---------+------------+------+------+
+
+Select avg(comm) from salespeople where city = 'London'; 
++-----------+
+| avg(comm) |
++-----------+
+| 0.1150000 |
++-----------+
+
+
+Select snum, cnum  from orders where cnum in (select cnum  from cust where city = 'London'); 
++------+------+
+| snum | cnum |
++------+------+
+| 1001 | 2001 |
+| 1002 | 2006 |
+| 1001 | 2006 |
+| 1001 | 2006 |
++------+------+
+
+
+Select comm from salespeople where snum in (select snum from cust where city = 'London');
++-------+
+| comm  |
++-------+
+| 0.120 |
+| 0.150 |
++-------+
+
+Select cnum, cname from cust where cnum > ( select snum+1000  from salespeople where sname = 'Serres');
++------+---------+
+| cnum | cname   |
++------+---------+
+| 2003 | Liu     |
+| 2004 | Grass   |
+| 2006 | Clemens |
+| 2007 | Pereia  |
++------+---------+
+
+Select cnum, rating from cust where rating > ( select avg(rating)  from cust where city = 'San Jose'); 
+Empty set
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
